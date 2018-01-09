@@ -31,12 +31,44 @@ def restaurant_rating(filename):
     # for restaurant, number in sorted(restaurant_ratings.items()):
     #     print "{} is rated at {}".format(restaurant, number)
 
-    restaurant_name_input, restaurant_score_input = user_input()
 
-    restaurant_ratings[restaurant_name_input] = restaurant_score_input
+
+    # restaurant_name_input, restaurant_score_input = user_input()
+    # restaurant_ratings[restaurant_name_input] = restaurant_score_input
 
     for restaurant, number in sorted(restaurant_ratings.items()):
         print "{} is rated at {}".format(restaurant, number)
 
-for text_file in sys.argv[1:]:
-    restaurant_rating(text_file)
+
+def user_choice():
+    """Giving user options to see restaurant ratings, adding a new restaurant, or quitting"""
+
+    OPTIONS = """
+        a) See ratings
+        b) Add rating
+        c) Quit
+    """
+
+    while True:
+        print OPTIONS
+        user_choice = raw_input("What would you like to do?: ")
+
+        if user_choice == "a":
+            restaurant_rating(filename)
+        elif user_choice == "b":
+            user_input()
+        elif user_choice == "c":
+            print "Good-bye!"
+            break
+        else:
+            print "Invalid input"
+
+
+filename = "scores.txt"
+# for text_file in sys.argv[1:]:
+#     restaurant_rating(text_file)
+
+
+
+## all functions work, except dictionary doesn't get updated with user input
+# FIX IT
