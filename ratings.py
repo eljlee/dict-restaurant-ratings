@@ -4,10 +4,15 @@ import sys
 
 def user_input():
     """Takes in user input for restaurant and it's rating, append to dictionary, and returning update dictionary"""
+        
     restaurant_name_input = raw_input("Enter Restaurant name: ")
-    restaurant_score_input = int(raw_input("Enter Restaurant's rating: "))
+    while True:
+        restaurant_score_input = int(raw_input("Enter Restaurant's rating: "))
+        if 0 <= restaurant_score_input <= 5:
+            return restaurant_name_input, restaurant_score_input
+        else:
+            print "Please Enter Valid Input"
 
-    return restaurant_name_input, restaurant_score_input
 
 
 def restaurant_rating(filename):
